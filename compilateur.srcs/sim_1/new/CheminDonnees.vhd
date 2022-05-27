@@ -143,7 +143,8 @@ signal calc_BM : std_logic := '1'; --par défaut, lecture du banc de mémoire.
 -- MUX ONE
 signal mux_BR : std_logic_vector(7 downto 0) := (others => '0');
 signal mux_ALU : std_logic_vector(7 downto 0) := (others => '0');
-signal mux_BM : std_logic_vector(7 downto 0) := (others => '0');
+signal mux_BM_load : std_logic_vector(7 downto 0) := (others => '0');
+signal mux_BM_store : std_logic_vector(7 downto 0) := (others => '0');
 
 
 constant CLK_period : time := 10ns;
@@ -151,8 +152,8 @@ constant CLK_period : time := 10ns;
 begin
 
 Label_bm: BancMemoire PORT MAP (
-    addr => B_EXMEM_out,
-    input => input_BM_test,
+    addr => mux_BM_store,
+    input => B_EXMEM_out,
     RW => calc_BM,
     RST => RST_BM_test,
     output => output_BM_test,
@@ -192,8 +193,9 @@ Label_bi: BancInstructions PORT MAP (
 
 
 -- LC APRES MEMRE--
--- NE PRENDS PAS EN COMPTE LES NO OP OU LES OP INCONNUES
-calc_W <=  '0' when (OP_MEMRE_out="1000") else '1';
+-- NE PRENDS PAS EN COMPTE LES OP INCONNUES
+-- NO OP = 0 0 0 0 ==> si opcode = 0 alors on ne fais que lire
+calc_W <=  '0' when (OP_MEMRE_out="1000" or OP_MEMRE_out="0000") else '1';
 
 
 -- LC ALU
@@ -216,13 +218,18 @@ mux_BR <= B_PPL_out_LIDI when (OP_PPL_out_LIDI="0110") else
                QA_BR;
                
                
--- MUX ALU
-mux_ALU <= output_BM_test when (OP_EXMEM_out="1000" or OP_EXMEM_out="0111") else
+-- MUX BM_load
+-- on veut Donnée[B] et non R[B] quand ya LOAD
+mux_BM_load <= output_BM_test when OP_EXMEM_out="0111" else
            B_EXMEM_out;
 
+-- MUX BM_store
+-- pour STORE l'adresse d'écriture est donnée par A et pas par B
+mux_BM_store <= A_EXMEM_out when OP_EXMEM_out="1000" else
+           B_EXMEM_out;
 
--- MUX BM
-mux_BM <= S_test_UAL when (OP_DIEX_out="0001" or OP_DIEX_out="0010" or
+-- MUX UAL
+mux_ALU <= S_test_UAL when (OP_DIEX_out="0001" or OP_DIEX_out="0010" or
                             OP_DIEX_out="0011" or OP_DIEX_out="0100" or
                             OP_DIEX_out="1001" or OP_DIEX_out="1010" or
                             OP_DIEX_out="1011") else
@@ -279,7 +286,7 @@ diex_pipeline : process
       wait until rising_edge(CLK_test);
           -- Entrée de LIDI = sortie de Banc Instruction
           A_MEMRE_out <= A_EXMEM_out;
-          B_MEMRE_out <= B_EXMEM_out;
+          B_MEMRE_out <= mux_BM_load;
           OP_MEMRE_out <= OP_EXMEM_out;
   
     end process;
@@ -294,10 +301,6 @@ Clock_process : process
 
 addr_BI_test <= "00000001" after 10ns;
 
--- avant j'utilisais addr_A_BR
--- maintenant c'est devenu la sortie de LIDI
--- Pour faire les tests j'assignais à la main mais je peux plus
--- l'out de LIDI est pas bon ??
 
 -- 
 --B_PPL_out_LIDI <= "00000011" after 60ns;
