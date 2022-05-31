@@ -2,8 +2,8 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun May 22 19:53:14 2022
-# Process ID: 104937
+# Start of session at: Tue May 31 18:59:05 2022
+# Process ID: 288942
 # Current directory: /home/rosimon/compilateur/compilateur.sim/sim_1/behav/xsim
 # Command line: wbtcv -mode batch -source /home/rosimon/compilateur/compilateur.sim/sim_1/behav/xsim/xsim.dir/CheminDonnees_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/rosimon/compilateur/compilateur.sim/sim_1/behav/xsim/webtalk.log

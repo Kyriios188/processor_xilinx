@@ -259,3 +259,29 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.s
 INFO: [VRFC 10-307] analyzing entity CheminDonnees
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sources_1/new/BancInstructions.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity BancInstructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sources_1/new/BancInstructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancInstructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sources_1/new/BancInstructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancInstructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sources_1/new/BancInstructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancInstructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/rosimon/compilateur/compilateur.srcs/sim_1/new/CheminDonnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CheminDonnees

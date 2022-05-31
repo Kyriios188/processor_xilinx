@@ -50,11 +50,24 @@ instructions(15 downto 8) <= "00000110";
 instructions(23 downto 16) <= "00000010";
 instructions(31 downto 24) <= "00000000";
 
+-- DANS R[2] on met i@2
+instructions(39 downto 32) <= "00000010"; -- R[2]
+instructions(47 downto 40) <= "00000111"; -- LOAD
+instructions(55 downto 48) <= "00000001"; --i (pourrai être nimp)
+instructions(63 downto 56) <= "00000000";
+
+
+-- DANS i@1 ON STORE R[2]
+--instructions(39 downto 32) <= "00000001"; --i
+--instructions(47 downto 40) <= "00001000"; -- STORE
+--instructions(55 downto 48) <= "00000010"; -- R[2]
+--instructions(63 downto 56) <= "00000000";
+
 -- DANS R[3] on met R[2] + R[2]
-instructions(39 downto 32) <= "00000010";
-instructions(47 downto 40) <= "00000001";
-instructions(55 downto 48) <= "00000010";
-instructions(63 downto 56) <= "00000010";
+--instructions(39 downto 32) <= "00000010";
+--instructions(47 downto 40) <= "00000001";
+--instructions(55 downto 48) <= "00000010";
+--instructions(63 downto 56) <= "00000010";
 
 
     process

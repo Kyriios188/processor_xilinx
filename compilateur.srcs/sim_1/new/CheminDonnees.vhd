@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -101,7 +101,6 @@ signal N_test_UAL : STD_LOGIC := '0';
 signal CK_test_UAL : STD_LOGIC := '0';
 
 -- SIGNAUX Banc Mémoire
-signal input_BM_test : std_logic_vector(7 downto 0) := (others => '0');
 signal RST_BM_test : std_logic := '1';
 signal output_BM_test : std_logic_vector(7 downto 0) := (others => '0');
 
@@ -214,7 +213,7 @@ calc_BM <=  '0' when (OP_EXMEM_out="1000") else '1';
 
 
 -- MUX Banc Registre
-mux_BR <= B_PPL_out_LIDI when (OP_PPL_out_LIDI="0110") else
+mux_BR <= B_PPL_out_LIDI when (OP_PPL_out_LIDI="0110" or OP_PPL_out_LIDI="0111") else
                QA_BR;
                
                
@@ -225,7 +224,8 @@ mux_BM_load <= output_BM_test when OP_EXMEM_out="0111" else
 
 -- MUX BM_store
 -- pour STORE l'adresse d'écriture est donnée par A et pas par B
-mux_BM_store <= A_EXMEM_out when OP_EXMEM_out="1000" else
+-- A_EXMEM_OUT est sur 4 bits, on ajoute du padding
+mux_BM_store <=  STD_LOGIC_VECTOR(RESIZE(UNSIGNED(A_EXMEM_out), 8)) when OP_EXMEM_out="1000" else
            B_EXMEM_out;
 
 -- MUX UAL
@@ -299,7 +299,7 @@ Clock_process : process
     end process;
 
 
-addr_BI_test <= "00000001" after 10ns;
+addr_BI_test <= "00000001" after 20ns;
 
 
 -- 
